@@ -9,12 +9,11 @@ export function AuthGuard({ isPrivate }: AuthGuardProps) {
   const { signedIn } = useAuth();
 
   if (!signedIn && isPrivate) {
-    // Redirect to the login page
     return <Navigate to="/login" replace />;
   }
 
   if (signedIn && !isPrivate) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/" replace />;
   }
 
   return <Outlet />;
